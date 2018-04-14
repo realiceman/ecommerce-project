@@ -64,8 +64,12 @@
 			    <c:if test="${userClicAllProducts == true || userClicCategoryProducts == true}">
 			       <%@include file="listProducts.jsp" %>
 			    </c:if>
-		
-		    </div>
+
+				<c:if test="${userClickShowProduct == true}">
+					<%@include file="singleProduct.jsp"%>
+				</c:if>
+
+		</div>
 	    <!-- Footer -->
 	    <%@include file="./shared/footer.jsp" %>
 	
