@@ -21,6 +21,7 @@
     <title>Online Store - ${title}</title>
     <script>
       window.menu = '${title}';
+      window.contextRoot = '${contextRoot}'
     </script>
 
     <!-- Bootstrap core CSS -->
@@ -29,6 +30,11 @@
      <!-- Bootstrap theme CSS -->
     <link href="${css}/bootstrap-theme.css" rel="stylesheet">
 
+  <!-- Bootstrap datatables CSS -->
+    <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!-- Custom styles for this template -->
     <link href="${css}/my-app.css" rel="stylesheet">
 
@@ -67,6 +73,7 @@
 	    <script src="${js}/jquery.js"></script>
 	    <script src="${js}/bootstrap.bundle.min.js"></script>
 	    <script src="${js}/jquery.dataTables.js"></script>
+	    <script src="${js}/dataTables.bootstrap4.js"></script>
 	    <script src="${js}/myapp.js"></script>
     
     </div>
