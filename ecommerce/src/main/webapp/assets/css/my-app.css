@@ -40,3 +40,13 @@ custom styling
    width: 100px;
    height: 100px;	
 }
+
+.help-block {
+	color: red;
+}
+
+.adminDataTableImg {
+   width: 50px;
+   height: 50px;	
+	
+}

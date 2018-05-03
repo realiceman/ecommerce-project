@@ -1,11 +1,13 @@
 package net.youss.ecommerce.controllers;
 
+import org.apache.log4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.youss.ecommerce.exceptions.ProductNotFoundException;
 import net.youss.ecommercebackend.dao.ICategoryDAO;
 import net.youss.ecommercebackend.dao.ProductDAO;
 import net.youss.ecommercebackend.dto.Category;
@@ -13,6 +15,8 @@ import net.youss.ecommercebackend.dto.Product;
 
 @Controller
 public class PageController {
+	
+	public static  Logger logger = LogManager.getLogger(PageController.class);
 	
 	@Autowired
 	private ICategoryDAO categoryDAO;
@@ -23,6 +27,7 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title","Home");
+		 logger.info("message depuis index");
 		//pass the category list
 		mv.addObject("categories", categoryDAO.list());
 		mv.addObject("userClickHome",true);
@@ -77,9 +82,10 @@ public class PageController {
 		
 		//show one product
 		@RequestMapping(value = "/show/{id}/product")
-		public ModelAndView showSingleProduct(@PathVariable int id) {
+		public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException{
 			ModelAndView mv = new ModelAndView("page");
 			Product product = productDAO.get(id);
+			if(product == null) throw new ProductNotFoundException();
 			//update the view count
 			product.setViews(product.getViews()+1);
 			productDAO.update(product);

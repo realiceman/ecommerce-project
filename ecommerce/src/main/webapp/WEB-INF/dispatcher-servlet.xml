@@ -12,7 +12,7 @@
    http://www.springframework.org/schema/webflow-config
    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd ">
 
-  <context:component-scan base-package="net.youss.ecommerce.controllers" />
+  <context:component-scan base-package="net.youss.ecommerce" />
   <context:component-scan base-package="net.youss.ecommercebackend" />
   
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -20,6 +20,9 @@
       <property name="suffix" value=".jsp" />
   </bean>
   
+ 	<!-- id must be multipartResolver -->
+	<bean id="multipartResolver"
+	      class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
   
   <!-- static resources -->
   <mvc:annotation-driven />

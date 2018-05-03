@@ -4,8 +4,7 @@
   <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
   
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />    
 
 <!DOCTYPE html>
@@ -37,43 +36,43 @@
     
     <!-- Custom styles for this template -->
     <link href="${css}/my-app.css" rel="stylesheet">
-    <link href="${css}/toggle.css" rel="stylesheet">
+
   </head>
 
   <body>
 
   <div class="wrapper">
-	    <!-- Navigation -->
-	    <%@include file="./shared/navbar.jsp" %>
-	   
-		   
-		    <!-- Page Content -->
-		    <div class="content">
-			    <c:if test="${userClickHome == true}">
-			       <%@include file="home.jsp" %>
-			    </c:if>
-			    
-			     <c:if test="${userClickAbout == true}">
-			       <%@include file="about.jsp" %>
-			    </c:if>
-			    
-			     <c:if test="${userClickContact == true}">
-			       <%@include file="contact.jsp" %>
-			    </c:if>
-			    
-			    <c:if test="${userClicAllProducts == true || userClicCategoryProducts == true}">
-			       <%@include file="listProducts.jsp" %>
-			    </c:if>
+	 		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                
+	                <a id="home" class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
+	            </div>
+	        </div>
+       </nav>
 
-				<c:if test="${userClickShowProduct == true}">
-					<%@include file="singleProduct.jsp"%>
-				</c:if>
-				
-					<c:if test="${userClickManageProducts == true}">
-					<%@include file="manageProducts.jsp"%>
-				</c:if>
+		<!-- page content -->
 
+		<div class="content">
+			
+			<div class="container">
+			   <div class="row">
+			      <div class="col-xs-12">
+			         <div class="jumbotron">
+			              <h1>${errorTitle}</h1>
+			              <hr/>
+			              <blockquote style="word-wrap:break-word">
+			                 ${errorDescription}
+			              </blockquote>
+			         </div>
+			      </div>
+			   </div>
+			</div>
+		    
 		</div>
+		
 	    <!-- Footer -->
 	    <%@include file="./shared/footer.jsp" %>
 	
@@ -82,8 +81,8 @@
 	    <script src="${js}/bootstrap.bundle.min.js"></script>
 	    <script src="${js}/jquery.dataTables.js"></script>
 	    <script src="${js}/dataTables.bootstrap4.js"></script>
-	    <script src="${js}/bootbox.min.js"></script>
-        <script src="${js}/myapp.js"></script>
+	    <script src="${js}/myapp.js"></script>
+    
     </div>
   </body>
 
