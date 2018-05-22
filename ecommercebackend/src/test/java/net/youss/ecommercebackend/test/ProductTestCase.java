@@ -25,19 +25,19 @@ public class ProductTestCase {
 		
 	}
 
-//	@Test
-//	public void testCRUDProduct() {
-//		product = new Product();
-//		product.setName("oneProd2");
-//		product.setBrand("youssBrand2");
-//		product.setDescription("une description...");
-//		product.setUnitPrice(200);
-//		product.setActive(true);
-//		product.setCategoryId(3);
-//		product.setSupplierId(3);
-//		
-//		assertEquals("pb",true, productDAO.add(product));
-//	}
+	@Test
+	public void testCRUDProduct() {
+		product = new Product();
+		product.setName("iphoneX");
+		product.setBrand("Apple");
+		product.setDescription("une description iphone...");
+		product.setUnitPrice(1200);
+		product.setActive(true);
+		product.setCategoryId(3);
+		product.setSupplierId(3);
+		
+		assertEquals("pb",true, productDAO.add(product));
+	}
 //	@Test
 //	public void testprodsByCat(){
 //		
@@ -50,7 +50,7 @@ public class ProductTestCase {
 //		assertEquals("pb",true, productDAO.update(product));
 //	}
 	
-	@Test
+/*	@Test
 	public void testListActiveProducts(){
 		assertEquals("nookkk",6,productDAO.listAllActiveProds().size());
 	}
@@ -68,6 +68,6 @@ public class ProductTestCase {
 	@Test
 	public void testLatestActivePdt() {
 		assertEquals("nok",2, productDAO.getLatestActiveProds(2).size());
-	}
+	}*/
 
 }
